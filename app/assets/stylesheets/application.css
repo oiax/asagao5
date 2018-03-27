@@ -13,3 +13,195 @@
  *= require_tree .
  *= require_self
  */
+
+/* ページ全体 */
+body {
+  background-color: white;
+  color: black;
+  margin: 0; padding: 0;
+  font-family: Meiryo, sans-serif;
+}
+
+/* リンク */
+a:link { color: #00c; }
+a:visited { color: #a08; }
+a:hover { color: #ccf; }
+a img { border: none; }
+
+/* ブロック要素 */
+p, h1, h2, h3, table, ul {
+  margin: 0 0 1em;
+}
+
+/* 全体の枠 */
+div#container {
+  margin: 0 auto;
+  padding-top: 5px;
+  width: 780px;
+}
+
+/* 左の枠（コンテンツを入れる） */
+main {
+  float: left;
+  width: 530px;
+  padding: 10px 10px 10px 0;
+}
+
+/* 右の枠（サイドバーを入れる） */
+aside#sidebar {
+  float: left;
+  width: 230px;
+  background-color: #e8ffff;
+  padding: 5px;
+  font-size: 86%;
+}
+
+/* ヘッダー */
+header {
+  border-top: 4px solid #6bb;
+}
+
+/* フッター */
+footer {
+  clear: both;
+  font: 11px Verdana;
+  color: #888;
+  padding: 8px 0;
+  border-top: 4px solid #6bb;
+  text-align: center;
+}
+
+/* メニューバー */
+nav.menubar {
+  padding: 2px;
+  background-color: #000;
+  color: #ccc;
+  font-size: 80%;
+  padding: 8px 16px;
+}
+
+/* メニューバーのリンク */
+nav.menubar a { text-decoration: none; }
+
+/* メニューバーのリンク（未訪問） */
+nav.menubar a:link { color: #ccc; }
+
+/* メニューバーのリンク（訪問済） */
+nav.menubar a:visited { color: #ecc; }
+
+/* メニューバーのリンク（マウスを合わせたとき） */
+nav.menubar a:hover {
+  color: #f88;
+  text-decoration: underline;
+}
+
+/* メニューバーのリンク（現在のページ） */
+nav.menubar span {
+  color: #ff8;
+  font-weight: bold;
+}
+
+/* メインコンテンツ */
+main h1 {
+  color: #88c;
+  font-weight: normal;
+  font-size: 150%;
+  border-bottom: 2px solid #88c;
+  margin-bottom: 0.5em;
+}
+
+main h2 {
+  color: #99d;
+  font-weight: bold;
+  font-size: 120%;
+  margin-bottom: 0.5em;
+  border-bottom: 1px solid #ccf;
+}
+
+main p, main ul {
+  font-size: 90%;
+  line-height: 1.5;
+}
+
+/* サイドバー */
+table#login_form td {
+  font-size: 12px;
+}
+
+aside#sidebar h2 {
+  color: #080;
+  font-weight: bold;
+  border-bottom: 1px dotted #080;
+  margin-bottom: 0.5em;
+  font-size: 100%;
+}
+
+aside#sidebar ul {
+  padding-left: 1em;
+  list-style-type: none;
+}
+
+aside#sidebar li {
+  margin-bottom: 0.3em;
+}
+
+/* 表：一覧表示、詳細表示 */
+table.list, table.attr {
+  font-size: 90%;
+  width: 100%;
+}
+
+table.list th, table.attr th {
+  background-color: #499;
+  color: white;
+  font-weight: normal;
+}
+
+table.list td, table.list th,
+table.attr td, table.attr th {
+  padding: 4px;
+}
+
+table.list th {
+  text-align: left;
+}
+
+table.attr th {
+  text-align: right;
+}
+
+table.list td, table.attr td {
+  background-color: #cee;
+}
+
+/* フラッシュ */
+p.notice {
+  border: 1px solid blue;
+  padding: 3px;
+  background-color: #ccf;
+}
+
+/* エラー表示 */
+div#errors {
+  background-color: #fee;
+  border: 1px solid #ecc;
+  padding: 3px 6px;
+  margin: 0 0 1em;
+}
+
+div#errors h2 {
+  font-size: 90%;
+  color: red;
+  margin: 0 0 4px;
+  border: none;
+}
+
+div#errors ul {
+  margin: 0;
+  padding-left: 1.5em;
+}
+
+div.field_with_errors {
+  background-color: #fcc;
+  padding: 2px;
+}
