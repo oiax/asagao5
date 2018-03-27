@@ -124,8 +124,24 @@ main p, main ul {
 }
 
 /* サイドバー */
-table#login_form td {
+form#login_form {
   font-size: 12px;
+}
+
+form#login_form div {
+  padding: 2px;
+  text-align: center;
+}
+
+form#login_form label {
+  display: inline-block;
+  width: 80px;
+  text-align: center;
+}
+
+form#login_form input[type="text"],
+form#login_form input[type="password"] {
+  width: 120px;
 }
 
 aside#sidebar h2 {
