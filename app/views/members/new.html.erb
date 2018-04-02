@@ -1,0 +1,8 @@
+<% @page_title = "会員の新規登録" %>
+
+<h1><%= @page_title %></h1>
+
+<%= form_for @member do |form| %>
+<%= render "form", form: form %>
+<p><%= form.submit %></p>
+<% end %>
