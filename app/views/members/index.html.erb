@@ -1,0 +1,34 @@
+<%  @page_title = "会員名簿" %>
+<h1><%=  @page_title %></h1>
+
+<%= form_tag :search_members, method: :get do %>
+  <p><%= text_field_tag "q", params[:q] %>
+  <%= submit_tag "検索" %></p>
+<% end %>
+
+<p><%= link_to "会員の新規登録", :new_member  %></p>
+
+<% if @members.present? %>
+<table class="list">
+  <tr>
+    <th>背番号</th>
+    <th>ユーザー名</th>
+    <th>氏名</th>
+    <th>操作</th>
+  </tr>
+  <% @members.each do |member| %>
+  <tr>
+    <td style="text-align: right"><%= member.number %></td>
+    <td><%= link_to member.name, member %></td>
+    <td><%= member.full_name %></td>
+    <td>
+      <%= link_to "編集", [:edit, member] %> |
+      <%= link_to "削除", member, method: :delete,
+            data: { confirm: "本当に削除しますか?" } %>
+    </td>
+  </tr>
+  <% end %>
+</table>
+<% else %>
+<p>会員情報がありません。</p>
+<% end %>
