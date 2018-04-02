@@ -25,9 +25,9 @@
   <tr>
     <th><%= form.label :birthday, "誕生日",
               for: "member_birthday_1i" %></th>
-    <td><%= form.date_select :birthday,
+    <td><%= add_date_unit(form.datetime_select :birthday,
               start_year: 1940, end_year: Time.now.year,
-              use_month_numbers: true %></td>
+              use_month_numbers: true) %></td>
   </tr>
   <tr>
     <th><%= form.label :email, "メールアドレス" %></th>
