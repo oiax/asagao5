@@ -2,42 +2,41 @@
 
 <table class="attr">
   <tr>
-    <th><%= form.label :number, "背番号" %></th>
+    <th><%= form.label :number %></th>
     <td><%= form.text_field :number, size: 8 %></td>
   </tr>
   <tr>
-    <th><%= form.label :name, "ユーザー名" %></th>
+    <th><%= form.label :name %></th>
     <td><%= form.text_field :name %></td>
   </tr>
   <tr>
-    <th><%= form.label :full_name, "氏名" %></th>
+    <th><%= form.label :full_name %></th>
     <td><%= form.text_field :full_name %></td>
   </tr>
   <tr>
-    <th>性別</th>
+    <th><%= Member.human_attribute_name(:gender) %></th>
     <td>
       <%= form.radio_button :gender, 0 %>
-      <%= form.label :gender_0, "男" %>
+      <%= form.label :gender_0 %>
       <%= form.radio_button :gender, 1 %>
-      <%= form.label :gender_1, "女" %>
+      <%= form.label :gender_1 %>
     </td>
   </tr>
   <tr>
-    <th><%= form.label :birthday, "誕生日",
-              for: "member_birthday_1i" %></th>
+    <th><%= form.label :birthday, for: "member_birthday_1i" %></th>
     <td><%= form.date_select :birthday,
               start_year: 1940, end_year: Time.now.year,
               use_month_numbers: true %></td>
   </tr>
   <tr>
-    <th><%= form.label :email, "メールアドレス" %></th>
+    <th><%= form.label :email %></th>
     <td><%= form.text_field :email %></td>
   </tr>
   <tr>
-    <th>管理者</th>
+    <th><%= Member.human_attribute_name(:administrator) %></th>
     <td>
       <%= form.check_box :administrator %>
-      <%= form.label :administrator, "管理者" %>
+      <%= form.label :administrator %>
     </td>
   </tr>
 </table>

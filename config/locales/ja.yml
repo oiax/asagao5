@@ -1,0 +1,18 @@
+ja:
+  activerecord:
+    models:
+      member: 会員情報
+    attributes:
+      member:
+        number: 背番号
+        name: ユーザー名
+        full_name: 氏名
+        gender: 性別
+        gender_0: 男
+        gender_1: 女
+        birthday: 誕生日
+        email: メールアドレス
+        administrator: 管理者
+    errors:
+      messages:
+        invalid_member_name: "は半角英数字で入力してください（_も使えます）。"
