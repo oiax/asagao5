@@ -1,9 +1,19 @@
 <%= image_tag("logo.gif", size: "272x48", alt: "Morning Glory") %>
 
+<% if current_member %>
+<p class="member">
+<%= current_member.name %>さん |
+<%= link_to "ログアウト", :session,
+      method: :delete, data: { confirm: "ログアウトしますか？" } %>
+</p>
+<% end %>
+
 <nav class="menubar">
 <%= menu_link_to "TOP", root_path %>
 &nbsp;|&nbsp; <%= menu_link_to "ニュース", "#" %>
 &nbsp;|&nbsp; <%= menu_link_to "ブログ", "#" %>
+<% if current_member %>
 &nbsp;|&nbsp; <%= menu_link_to "会員名簿", :members %>
 &nbsp;|&nbsp; <%= menu_link_to "管理ページ", "#" %>
+<% end %>
 </nav>

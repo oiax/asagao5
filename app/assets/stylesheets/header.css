@@ -1,0 +1,7 @@
+header p.member {
+  width: 200px;
+  float: right;
+  font-size: 80%;
+  text-align: right;
+  padding-top: 6px;
+}
