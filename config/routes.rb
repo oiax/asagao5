@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   resources :members do
     collection { get "search" }
   end
+
+  resource :session
 end
