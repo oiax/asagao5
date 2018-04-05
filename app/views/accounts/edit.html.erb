@@ -1,0 +1,9 @@
+<% @page_title = "アカウント情報の編集" %>
+<h1><%= @page_title %></h1>
+
+<p><%= link_to "マイアカウントに戻る", :account %></p>
+
+<%= form_for @member, as: "account", url: :account do |form| %>
+<%= render "members/form", form: form %>
+<p><%= form.submit %></p>
+<% end %>

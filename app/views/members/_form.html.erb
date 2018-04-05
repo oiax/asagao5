@@ -32,6 +32,7 @@
     <th><%= form.label :email %></th>
     <td><%= form.text_field :email %></td>
   </tr>
+  <% if controller.kind_of?(MembersController) %>
   <tr>
     <th><%= Member.human_attribute_name(:administrator) %></th>
     <td>
@@ -39,16 +40,5 @@
       <%= form.label :administrator %>
     </td>
   </tr>
-  <tr>
-    <th><%= form.label :password %></th>
-    <td><%= form.password_field :password %></td>
-  </tr>
-  <tr>
-    <th><%= form.label :password_confirmation %></th>
-    <td><%= form.password_field :password_confirmation %></td>
-  </tr>
+  <% end %>
 </table>
-
-<% unless @member.new_record? %>
-<p>パスワードを変更しないときは、パスワード入力欄を空にしてください。</p>
-<% end %>
