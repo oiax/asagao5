@@ -14,4 +14,13 @@ class Article < ApplicationRecord
   before_validation do
     self.expired_at = nil if @no_expiration
   end
+
+  scope :open_to_the_public, -> { where(member_only: false) }
+
+  scope :visible, -> do
+    now = Time.current
+
+    where("released_at <= ?", now)
+      .where("expired_at > ? OR expired_at IS NULL", now)
+  end
 end
