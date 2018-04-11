@@ -1,0 +1,12 @@
+<p class="article_footer">
+<% if current_member %>
+  <%= Entry.status_text(entry.status) %> |
+  <% if current_member == entry.author %>
+    <%= link_to "編集", [:edit, entry] %> |
+    <%= link_to "削除", entry, method: :delete,
+          data: { confirm: "本当に削除しますか？" } %> |
+  <% end %>
+<% end %>
+by <%= link_to entry.author.name, [entry.author, :entries] %> |
+<%= entry.posted_at.strftime("%Y/%m/%d %H:%M") %>
+</p>

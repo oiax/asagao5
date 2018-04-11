@@ -11,7 +11,7 @@
 <nav class="menubar">
 <%= menu_link_to "TOP", root_path %>
 &nbsp;|&nbsp; <%= menu_link_to "ニュース", :articles %>
-&nbsp;|&nbsp; <%= menu_link_to "ブログ", "#" %>
+&nbsp;|&nbsp; <%= menu_link_to "ブログ", :entries %>
 <% if current_member %>
 &nbsp;|&nbsp; <%= menu_link_to "会員名簿", :members %>
 &nbsp;|&nbsp; <%= menu_link_to "管理ページ", "#" %>

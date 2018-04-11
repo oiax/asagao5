@@ -1,0 +1,11 @@
+<% @page_title = @entry.title + " - " + @entry.author.name + "さんのブログ" %>
+<h1><%= @entry.author.name %>さんのブログ</h1>
+<h2><%= @entry.title %></h2>
+
+<% if current_member == @entry.author %>
+  <p><%= link_to "編集", [:edit, @entry] %></p>
+<% end %>
+
+<%= simple_format(@entry.body) %>
+
+<%= render "footer", entry: @entry %>
