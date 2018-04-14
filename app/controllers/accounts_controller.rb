@@ -22,6 +22,7 @@ class AccountsController < ApplicationController
   # ストロング・パラメータ
   private def account_params
     params.require(:account).permit(
+      :profile_picture,
       :number,
       :name,
       :full_name,

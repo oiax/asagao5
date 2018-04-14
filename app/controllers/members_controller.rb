@@ -61,6 +61,7 @@ class MembersController < ApplicationController
   # ストロング・パラメータ
   private def member_params
     attrs = [
+      :profile_picture,
       :number,
       :name,
       :full_name,

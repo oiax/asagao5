@@ -2,6 +2,10 @@
 
 <table class="attr">
   <tr>
+    <th><%= form.label :profile_picture %></th>
+    <td><%= form.file_field :profile_picture %></td>
+  </tr>
+  <tr>
     <th><%= form.label :number %></th>
     <td><%= form.text_field :number, size: 8 %></td>
   </tr>
