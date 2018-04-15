@@ -1,0 +1,19 @@
+<% @page_title = "ブログ記事の画像" %>
+<h1><%= @page_title %></h1>
+
+<p><%= link_to "画像の追加", [:new, @entry, :image] %></p>
+
+<% if @images.present? %>
+  <% @images.each_with_index do |image, index| %>
+    <h2>画像(<%= index + 1 %>)</h2>
+    <div>
+      <%= image_tag image.data.variant(resize: "480x480>"),
+        alt: image.alt_text if image.data.attached? %>
+    </div>
+    <div>
+      <%= image.alt_text %>
+    </div>
+  <% end %>
+<% else %>
+  <p>画像がありません。</p>
+<% end %>

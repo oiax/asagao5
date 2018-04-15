@@ -33,8 +33,16 @@ ja:
         status_draft: 下書き
         status_member_only: 会員限定
         status_public: 公開
+      entry_image:
+        data: 画像ファイル
+        alt_text: 代替テキスト
     errors:
       messages:
         invalid_member_name: "は半角英数字で入力してください（_も使えます）。"
         expired_at_too_old: は掲載開始日より新しい日時にしてください。
         invalid_image_type: にはJPEG、PNG、GIF、PNG形式の画像を指定してください。
+      models:
+        entry_image:
+          attributes:
+            data:
+              empty: "を選択してください。"

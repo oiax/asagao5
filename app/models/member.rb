@@ -1,4 +1,4 @@
-class Member < ActiveRecord::Base
+class Member < ApplicationRecord
   has_secure_password
 
   has_many :entries, dependent: :destroy
@@ -13,13 +13,6 @@ class Member < ActiveRecord::Base
     length: { minimum: 2, maximum: 20, allow_blank: true },
     uniqueness: { case_sensitive: false }
   validates :full_name, length: { maximum: 20 }
-
-  ALLOWED_CONTENT_TYPES = %q{
-    image/jpeg
-    image/png
-    image/gif
-    image/bmp
-  }
 
   validate do
     if profile_picture.attached?
