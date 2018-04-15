@@ -22,10 +22,10 @@ class Member < ActiveRecord::Base
   }
 
   validate do
-    return unless profile_picture.attached?
-
-    unless profile_picture.content_type.in?(ALLOWED_CONTENT_TYPES)
-      errors.add(:profile_picture, :invalid_image_type)
+    if profile_picture.attached?
+      unless profile_picture.content_type.in?(ALLOWED_CONTENT_TYPES)
+        errors.add(:profile_picture, :invalid_image_type)
+      end
     end
   end
 
