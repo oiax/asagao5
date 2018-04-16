@@ -1,19 +1,20 @@
-<nav class="article-footer">
-  <ul>
-    <% if current_member %>
-      <li><%= Entry.status_text(entry.status) %></li>
-      <% if current_member == entry.author %>
-        <%= menu_link_to "編集", [:edit, entry] %>
-        <%= menu_link_to "画像", [entry, :images] %>
-        <%= menu_link_to "削除", entry, method: :delete,
-              data: { confirm: "本当に削除しますか？" } %>
-      <% end %>
+<ul class="entry-footer">
+  <% if current_member %>
+    <li><%= Entry.status_text(entry.status) %></li>
+    <% if current_member == entry.author %>
+      <%= menu_link_to "編集", [:edit, entry] %>
+      <%= menu_link_to "画像", [entry, :images] %>
+      <%= menu_link_to "削除", entry, method: :delete,
+            data: { confirm: "本当に削除しますか？" } %>
     <% end %>
-    <li>
-      by <%= link_to entry.author.name, [entry.author, :entries] %>
-    </li>
-    <li>
-      <%= entry.posted_at.strftime("%Y/%m/%d %H:%M") %>
-    </li>
-  </ul>
-</nav>
+  <% end %>
+  <li>
+    by <%= link_to entry.author.name, [entry.author, :entries] %>
+  </li>
+  <li>
+    <%= entry.posted_at.strftime("%Y/%m/%d %H:%M") %>
+  </li>
+  <% if (count = entry.votes.count) > 0 %>
+    <li><span class="vote">★<%= count %></span></li>
+  <% end %>
+</ul>

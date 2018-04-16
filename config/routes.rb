@@ -19,6 +19,8 @@ Rails.application.routes.draw do
 
   resources :articles
   resources :entries do
+    member { patch :like, :unlike }
+    collection { get :voted }
     resources :images, controller: "entry_images"
   end
 end

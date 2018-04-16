@@ -1,4 +1,7 @@
-main nav.article-footer {
+main ul.entry-footer {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
   border-top: 1px #ccf dashed;
   padding-top: 4px;
   margin-bottom: 15px;
@@ -6,7 +9,11 @@ main nav.article-footer {
   font-size: 75%;
 }
 
-main nav.article-footer ul li:not(:last-child):after {
+main ul.entry-footer li {
+  display: inline;
+}
+
+main ul.entry-footer li:not(:last-child):after {
   color: #444;
   content: " | ";
   margin: 0 2px;

@@ -34,13 +34,17 @@ p, h1, h2, h3, table, ul {
 }
 
 /* ナビゲーション */
-nav ul {
+nav ul,
+ul.toolbar,
+ul.links {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-nav ul li {
+nav ul li,
+ul.toolbar li,
+ul.links li {
   display: inline;
 }
 
@@ -70,6 +74,10 @@ aside#sidebar {
 /* ヘッダー */
 header {
   border-top: 4px solid #6bb;
+}
+
+ul.account-menu {
+  text-align: right;
 }
 
 /* フッター */
@@ -146,13 +154,13 @@ main p {
   line-height: 1.5;
 }
 
-nav.toolbar {
+ul.toolbar {
   padding: 15px 0;
   font-size: 90%;
   text-align: right;
 }
 
-nav.toolbar ul li:not(:last-child):after {
+ul.toolbar li:not(:last-child):after {
   color: #888;
   content: " | ";
   margin: 0 2px;

@@ -1,18 +1,14 @@
-header nav.member {
+header ul.account-menu {
   width: 200px;
   float: right;
   font-size: 80%;
   text-align: right;
-  padding-top: 6px;
-}
-
-header nav.member ul {
   list-style-type: none;
-  margin: 0;
+  margin: 6px 0 0 0;
   padding: 0;
 }
 
-header nav.member ul li {
+header ul.account-menu li {
   display: inline;
   margin-right: 10px;
 }

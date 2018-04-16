@@ -2,6 +2,8 @@ class Member < ApplicationRecord
   has_secure_password
 
   has_many :entries, dependent: :destroy
+  has_many :votes, dependent: :destroy
+  has_many :voted_entries, through: :votes, source: :entry
   has_one_attached :profile_picture
 
   validates :number, presence: true,
@@ -20,6 +22,10 @@ class Member < ApplicationRecord
         errors.add(:profile_picture, :invalid_image_type)
       end
     end
+  end
+
+  def votable_for?(entry)
+    entry && entry.author != self && !votes.exists?(entry_id: entry.id)
   end
 
   class << self
