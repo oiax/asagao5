@@ -1,7 +1,18 @@
-header p.member {
+header nav.member {
   width: 200px;
   float: right;
   font-size: 80%;
   text-align: right;
   padding-top: 6px;
+}
+
+header nav.member ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+header nav.member ul li {
+  display: inline;
+  margin-right: 10px;
 }

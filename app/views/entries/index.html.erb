@@ -2,7 +2,7 @@
 <h1><%= @page_title %></h1>
 
 <% if current_member %>
-<p><%= link_to "ブログ記事の作成", :new_entry %></p>
+  <div class="toolbar"><%= link_to "ブログ記事の作成", :new_entry %></div>
 <% end %>
 
 <% if @entries.present? %>

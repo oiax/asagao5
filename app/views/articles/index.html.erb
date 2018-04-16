@@ -2,7 +2,7 @@
 <h1><%= @page_title %></h1>
 
 <% if current_member %>
-<p><%= link_to "新規作成", :new_article %></p>
+  <div class="toolbar"><%= link_to "新規作成", :new_article %></div>
 <% end %>
 
 <% if @articles.present? %>
@@ -28,5 +28,5 @@
   </table>
   <%= paginate @articles %>
 <% else %>
-<p>ニュースがありません。</p>
+  <p>ニュースがありません。</p>
 <% end %>

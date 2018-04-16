@@ -2,7 +2,7 @@
 <h1><%= @article.title %></h1>
 
 <% if current_member %>
-<p><%= link_to "編集", [:edit, @article] %></p>
+  <div class="toolbar"><%= link_to "編集", [:edit, @article] %></div>
 <% end %>
 
 <table class="attr">

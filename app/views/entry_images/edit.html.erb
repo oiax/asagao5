@@ -3,6 +3,6 @@
 
 <% url = entry_image_path(@entry, @image) %>
 <%= form_for @image, as: "image", url: url do |form| %>
-<%= render "form", form: form %>
-<p><%= form.submit %></p>
+  <%= render "form", form: form %>
+  <div><%= form.submit %></div>
 <% end %>

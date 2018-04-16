@@ -1,26 +1,28 @@
 <% @page_title = "ブログ記事の画像" %>
 <h1><%= @page_title %></h1>
 
-<p>
-  <%= link_to "ブログ記事に戻る", @entry %> |
-  <%= link_to "画像の追加", [:new, @entry, :image] %>
-</p>
+<ul class="toolbar">
+  <%= menu_link_to "ブログ記事に戻る", @entry %>
+  <%= menu_link_to "画像の追加", [:new, @entry, :image] %>
+</ul>
 
 <% if @images.present? %>
   <% @images.each_with_index do |image, index| %>
     <h2>画像(<%= index + 1 %>)</h2>
     <div>
       <%= image_tag image.data.variant(resize: "530x>"),
-        alt: image.alt_text if image.data.attached? %>
+        alt: image.alt_text %>
     </div>
     <div>
       <%= image.alt_text %>
     </div>
-    <div>
-      <%= link_to "編集", edit_entry_image_path(@entry, image) %> |
-      <%= link_to "削除", entry_image_path(@entry, image),
-        method: :delete, data: { confirm: "本当に削除しますか？" }%>
-    </div>
+    <nav class="toolbar">
+      <ul>
+        <%= menu_link_to "編集", edit_entry_image_path(@entry, image) %>
+        <%= menu_link_to "削除", entry_image_path(@entry, image),
+          method: :delete, data: { confirm: "本当に削除しますか？" }%>
+      </ul>
+    </nav>
   <% end %>
 <% else %>
   <p>画像がありません。</p>
