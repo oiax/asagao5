@@ -6,6 +6,10 @@
   <p><%= link_to "編集", [:edit, @entry] %></p>
 <% end %>
 
+<%= the_first_image(@entry) %>
+
 <%= simple_format(@entry.body) %>
+
+<%= other_images(@entry) %>
 
 <%= render "footer", entry: @entry %>
