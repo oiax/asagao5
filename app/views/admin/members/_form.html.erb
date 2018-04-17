@@ -1,0 +1,73 @@
+<%= render "shared/errors", obj: @member %>
+
+<table class="attr">
+  <%= form.fields_for :image do |imgf| %>
+  <tr>
+    <th><%= imgf.label :uploaded_image %></th>
+    <td>
+      <%= imgf.file_field :uploaded_image %>
+      <% if !imgf.object.new_record? && imgf.object.errors.empty? %>
+      <div>
+        <%= member_image_tag @member, width: 60 %>
+        <%= imgf.check_box :_destroy %>
+        <%= imgf.label :_destroy %>
+        <%= imgf.hidden_field :id %>
+      </div>
+      <% end %>
+    </td>
+  </tr>
+  <% end %>
+  <tr>
+    <th><%= form.label :number %></th>
+    <td><%= form.text_field :number, size: 8 %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :name %></th>
+    <td><%= form.text_field :name %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :full_name %></th>
+    <td><%= form.text_field :full_name %></td>
+  </tr>
+  <tr>
+    <th><%= Member.human_attribute_name(:gender) %></th>
+    <td>
+      <%= form.radio_button :gender, 0 %>
+      <%= form.label :gender_0 %>
+      <%= form.radio_button :gender, 1 %>
+      <%= form.label :gender_1 %>
+    </td>
+  </tr>
+  <tr>
+    <th><%= form.label :birthday, for: "member_birthday_1i" %></th>
+    <td><%= form.date_select :birthday,
+              start_year: 1940, end_year: Time.now.year,
+              use_month_numbers: true %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :email %></th>
+    <td><%= form.text_field :email %></td>
+  </tr>
+<% if controller.kind_of?(MembersController) %>
+  <tr>
+    <th><%= Member.human_attribute_name(:administrator) %></th>
+    <td>
+      <%= form.check_box :administrator,
+            disabled: !current_member.administrator? %>
+      <%= form.label :administrator %>
+    </td>
+  </tr>
+<% end %>
+  <tr>
+    <th><%= form.label :password %></th>
+    <td><%= form.password_field :password %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :password_confirmation %></th>
+    <td><%= form.password_field :password_confirmation %></td>
+  </tr>
+</table>
+
+<% unless @member.new_record? %>
+<p>パスワードを変更しないときは、パスワード入力欄を空にしてください。</p>
+<% end %>

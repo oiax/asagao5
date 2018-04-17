@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     get "lesson/step#{n}(/:name)" => "lesson#step#{n}"
   end
 
-  resources :members do
+  resources :members, only: [:index, :show] do
     collection { get "search" }
     resources :entries, only: [:index]
   end
@@ -22,5 +22,13 @@ Rails.application.routes.draw do
     member { patch :like, :unlike }
     collection { get :voted }
     resources :images, controller: "entry_images"
+  end
+
+  namespace :admin do
+    root to: "top#index"
+    resources :members do
+      collection { get "search" }
+    end
+    resources :articles
   end
 end
