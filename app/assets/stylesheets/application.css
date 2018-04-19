@@ -154,7 +154,8 @@ main p {
   line-height: 1.5;
 }
 
-ul.toolbar {
+ul.toolbar,
+div.toolbar {
   padding: 15px 0;
   font-size: 90%;
   text-align: right;

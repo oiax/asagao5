@@ -1,13 +1,13 @@
 class Admin::ArticlesController < Admin::Base
   # 記事一覧
   def index
-    @articles = Article.readable_for(current_member)
-      .order(released_at: :desc).paginate(page: params[:page], per_page: 5)
+    @articles = Article.order(released_at: :desc)
+      .page(params[:page]).per(5)
   end
 
   # 記事詳細
   def show
-    @article = Article.readable_for(current_member).find(params[:id])
+    @article = Article.find(params[:id])
   end
 
   # 新規登録フォーム
@@ -48,9 +48,15 @@ class Admin::ArticlesController < Admin::Base
     redirect_to :admin_articles
   end
 
-  private
-  def article_params
-    params.require(:article).permit(:title, :body,
-      :released_at, :expired_at, :member_only)
+  # ストロング・パラメータ
+  private def article_params
+    params.require(:article).permit(
+      :title,
+      :body,
+      :released_at,
+      :no_expiration,
+      :expired_at,
+      :member_only
+    )
   end
 end

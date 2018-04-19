@@ -1,0 +1,54 @@
+<%= render "shared/errors", obj: @member %>
+
+<table class="attr">
+  <tr>
+    <th><%= form.label :profile_picture %></th>
+    <td><%= form.file_field :profile_picture %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :number %></th>
+    <td><%= form.text_field :number, size: 8 %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :name %></th>
+    <td><%= form.text_field :name %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :full_name %></th>
+    <td><%= form.text_field :full_name %></td>
+  </tr>
+  <tr>
+    <th><%= Member.human_attribute_name(:gender) %></th>
+    <td>
+      <%= form.radio_button :gender, 0 %>
+      <%= form.label :gender_0 %>
+      <%= form.radio_button :gender, 1 %>
+      <%= form.label :gender_1 %>
+    </td>
+  </tr>
+  <tr>
+    <th><%= form.label :birthday, for: "member_birthday_1i" %></th>
+    <td><%= form.date_select :birthday,
+              start_year: 1940, end_year: Time.now.year,
+              use_month_numbers: true %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :email %></th>
+    <td><%= form.text_field :email %></td>
+  </tr>
+  <% if controller.kind_of?(Admin::MembersController) %>
+    <tr>
+      <th><%= Member.human_attribute_name(:administrator) %></th>
+      <td>
+        <%= form.check_box :administrator %>
+        <%= form.label :administrator %>
+      </td>
+    </tr>
+    <% if @member.new_record? %>
+      <tr>
+        <th><%= Member.human_attribute_name(:password) %></th>
+        <td><%= form.password_field :password %></td>
+      </tr>
+    <% end %>
+  <% end %>
+</table>
