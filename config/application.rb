@@ -36,5 +36,7 @@ module Asagao
     config.exceptions_app = ->(env) do
       ErrorsController.action(:show).call(env)
     end
+
+    Aws.use_bundled_cert!
   end
 end
