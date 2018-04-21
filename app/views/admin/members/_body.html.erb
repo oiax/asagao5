@@ -1,7 +1,11 @@
 <table class="attr">
   <tr>
-    <th>画像</th>
-    <td><%= member_image_tag @member, width: 96 %></td>
+    <th>プロフィール画像</th>
+    <td>
+      <% if @member.profile_picture.attached? %>
+        <%= image_tag @member.profile_picture.variant(resize: "128x128") %>
+      <% end %>
+    </td>
   </tr>
   <tr>
     <th width="150">背番号</th>
