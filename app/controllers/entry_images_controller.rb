@@ -7,7 +7,7 @@ class EntryImagesController < ApplicationController
 
   # 画像一覧
   def index
-    @images = @entry.images.order(:id)
+    @images = @entry.images.order(:position, :id)
   end
 
   # 編集フォームにリダイレクト
@@ -57,7 +57,8 @@ class EntryImagesController < ApplicationController
   private def image_params
     params.require(:image).permit(
       :data,
-      :alt_text
+      :alt_text,
+      :position
     )
   end
 end

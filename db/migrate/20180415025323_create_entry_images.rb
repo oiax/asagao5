@@ -3,6 +3,7 @@ class CreateEntryImages < ActiveRecord::Migration[5.2]
     create_table :entry_images do |t|
       t.references :entry                          # 外部キー
       t.string :alt_text, null: false, default: "" # 代替テキスト
+      t.integer :position, null: false             # 表示位置
 
       t.timestamps
     end

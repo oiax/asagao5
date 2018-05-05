@@ -16,6 +16,9 @@
     <div>
       <%= image.alt_text %>
     </div>
+    <div>
+      表示位置: <%= image.position %>
+    </div>
     <nav class="toolbar">
       <ul>
         <%= menu_link_to "編集", edit_entry_image_path(@entry, image) %>

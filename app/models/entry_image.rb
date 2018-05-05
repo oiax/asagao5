@@ -11,4 +11,10 @@ class EntryImage < ApplicationRecord
       errors.add(:data, :empty)
     end
   end
+
+  before_save do
+    unless position
+      self.position = (self.class.maximum(:position) || 0) + 1
+    end
+  end
 end
