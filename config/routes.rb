@@ -21,7 +21,9 @@ Rails.application.routes.draw do
   resources :entries do
     member { patch :like, :unlike }
     collection { get :voted }
-    resources :images, controller: "entry_images"
+    resources :images, controller: "entry_images" do
+      patch :move_higher, :move_lower, on: :member
+    end
   end
 
   namespace :admin do

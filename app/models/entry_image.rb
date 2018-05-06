@@ -1,6 +1,7 @@
 class EntryImage < ApplicationRecord
   belongs_to :entry
   has_one_attached :data
+  acts_as_list scope: :entry
 
   validate do
     if data.attached?
@@ -9,12 +10,6 @@ class EntryImage < ApplicationRecord
       end
     else
       errors.add(:data, :empty)
-    end
-  end
-
-  before_save do
-    unless position
-      self.position = (entry.images.maximum(:position) || 0) + 1
     end
   end
 end

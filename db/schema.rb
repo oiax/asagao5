@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2018_04_16_141455) do
   create_table "entry_images", force: :cascade do |t|
     t.integer "entry_id"
     t.string "alt_text", default: "", null: false
-    t.integer "position", null: false
+    t.integer "position"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["entry_id"], name: "index_entry_images_on_entry_id"

@@ -7,24 +7,45 @@
 </ul>
 
 <% if @images.present? %>
-  <% @images.each_with_index do |image, index| %>
-    <h2>画像(<%= index + 1 %>)</h2>
-    <div>
-      <%= image_tag image.data.variant(resize: "530x>"),
-        alt: image.alt_text %>
-    </div>
-    <div>
-      <%= image.alt_text %>
-    </div>
-    <div>
-      表示位置: <%= image.position %>
-    </div>
-    <ul class="toolbar">
-      <%= menu_link_to "編集", edit_entry_image_path(@entry, image) %>
-      <%= menu_link_to "削除", entry_image_path(@entry, image),
-        method: :delete, data: { confirm: "本当に削除しますか？" }%>
-    </ul>
-  <% end %>
+  <table class="list">
+    <thead>
+      <tr>
+        <th>番号</th>
+        <th>画像</th>
+        <th>代替テキスト</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @images.each_with_index do |image, index| %>
+        <tr>
+          <td><%= index + 1 %></td>
+          <td>
+            <%= image_tag image.data.variant(resize: "100x>"),
+              alt: image.alt_text %>
+          </td>
+          <td>
+            <%= image.alt_text %>
+          </td>
+          <td>
+            <div>
+              <%= link_to "編集", edit_entry_image_path(@entry, image) %> |
+              <%= link_to "削除", entry_image_path(@entry, image),
+                method: :delete, data: { confirm: "本当に削除しますか？" } %>
+            </div>
+            <div>
+              <%= link_to_unless image.first?, "上へ",
+                move_higher_entry_image_path(@entry, image),
+                method: :patch %> |
+              <%= link_to_unless image.last?,  "下へ",
+                move_lower_entry_image_path(@entry, image),
+                method: :patch %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 <% else %>
   <p>画像がありません。</p>
 <% end %>
