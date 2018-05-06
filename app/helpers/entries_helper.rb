@@ -1,6 +1,6 @@
 module EntriesHelper
   def the_first_image(entry)
-    image = entry.images.order(:position, :id).first
+    image = entry.images.order(:position, :id)[0]
 
     render_entry_image(image) if image
   end
@@ -8,7 +8,7 @@ module EntriesHelper
   def other_images(entry)
     buffer = "".html_safe
 
-    entry.images.order(:position, :id).offset(1).each do |image|
+    entry.images.order(:position, :id)[1..-1].each do |image|
       buffer << render_entry_image(image)
     end
 

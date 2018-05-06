@@ -19,13 +19,11 @@
     <div>
       表示位置: <%= image.position %>
     </div>
-    <nav class="toolbar">
-      <ul>
-        <%= menu_link_to "編集", edit_entry_image_path(@entry, image) %>
-        <%= menu_link_to "削除", entry_image_path(@entry, image),
-          method: :delete, data: { confirm: "本当に削除しますか？" }%>
-      </ul>
-    </nav>
+    <ul class="toolbar">
+      <%= menu_link_to "編集", edit_entry_image_path(@entry, image) %>
+      <%= menu_link_to "削除", entry_image_path(@entry, image),
+        method: :delete, data: { confirm: "本当に削除しますか？" }%>
+    </ul>
   <% end %>
 <% else %>
   <p>画像がありません。</p>

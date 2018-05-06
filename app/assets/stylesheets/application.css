@@ -43,6 +43,7 @@ ul.links {
 }
 
 nav ul li,
+div.toolbar li,
 ul.toolbar li,
 ul.links li {
   display: inline;

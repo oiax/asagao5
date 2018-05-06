@@ -14,7 +14,7 @@ class EntryImage < ApplicationRecord
 
   before_save do
     unless position
-      self.position = (self.class.maximum(:position) || 0) + 1
+      self.position = (entry.images.maximum(:position) || 0) + 1
     end
   end
 end
