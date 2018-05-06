@@ -5,22 +5,26 @@
 
 <% if @articles.present? %>
   <table class="list">
-    <tr>
-      <th>タイトル</th>
-      <th>日時</th>
-      <th>操作</th>
-    </tr>
-    <% @articles.each do |article| %>
+    <thead>
       <tr>
-        <td><%= link_to article.title, [:admin, article] %></td>
-        <td><%= article.released_at.strftime("%Y/%m/%d %H:%M") %></td>
-        <td>
-          <%= link_to "編集", [:edit, :admin, article] %> |
-          <%= link_to "削除", [:admin, article], method: :delete,
-            data: { confirm: "本当に削除しますか?" } %>
-        </td>
+        <th>タイトル</th>
+        <th>日時</th>
+        <th>操作</th>
       </tr>
-    <% end %>
+    </thead>
+    <tbody>
+      <% @articles.each do |article| %>
+        <tr>
+          <td><%= link_to article.title, [:admin, article] %></td>
+          <td><%= article.released_at.strftime("%Y/%m/%d %H:%M") %></td>
+          <td>
+            <%= link_to "編集", [:edit, :admin, article] %> |
+            <%= link_to "削除", [:admin, article], method: :delete,
+              data: { confirm: "本当に削除しますか?" } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
   </table>
   <%= paginate @articles %>
 <% else %>

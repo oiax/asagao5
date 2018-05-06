@@ -10,24 +10,28 @@
 
 <% if @members.present? %>
   <table class="list">
-    <tr>
-      <th>背番号</th>
-      <th>ユーザー名</th>
-      <th>氏名</th>
-      <th>操作</th>
-    </tr>
-    <% @members.each do |member| %>
+    <thead>
       <tr>
-        <td style="text-align: right"><%= member.number %></td>
-        <td><%= link_to member.name, [:admin, member] %></td>
-        <td><%= member.full_name %></td>
-        <td>
-          <%= link_to "編集", [:edit, :admin, member] %> |
-          <%= link_to "削除", [:admin, member], method: :delete,
-                data: { confirm: "本当に削除しますか?" } %>
-        </td>
+        <th>背番号</th>
+        <th>ユーザー名</th>
+        <th>氏名</th>
+        <th>操作</th>
       </tr>
-    <% end %>
+    </thead>
+    <tbody>
+      <% @members.each do |member| %>
+        <tr>
+          <td style="text-align: right"><%= member.number %></td>
+          <td><%= link_to member.name, [:admin, member] %></td>
+          <td><%= member.full_name %></td>
+          <td>
+            <%= link_to "編集", [:edit, :admin, member] %> |
+            <%= link_to "削除", [:admin, member], method: :delete,
+                  data: { confirm: "本当に削除しますか?" } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
   </table>
   <%= paginate @members %>
 <% else %>
