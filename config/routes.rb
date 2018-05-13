@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
 
   resources :members, only: [:index, :show] do
-    collection { get "search" }
+    get "search", on: :collection
     resources :entries, only: [:index]
   end
 
@@ -17,10 +17,10 @@ Rails.application.routes.draw do
   resource :account, only: [:show, :edit, :update]
   resource :password, only: [:show, :edit, :update]
 
-  resources :articles
+  resources :articles, only: [:index, :show]
   resources :entries do
-    member { patch :like, :unlike }
-    collection { get :voted }
+    patch :like, :unlike, on: :member
+    get :voted, on: :collection
     resources :images, controller: "entry_images" do
       patch :move_higher, :move_lower, on: :member
     end
@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: "top#index"
     resources :members do
-      collection { get "search" }
+      get "search", on: :collection
     end
     resources :articles
   end
