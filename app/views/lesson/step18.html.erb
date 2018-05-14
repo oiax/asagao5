@@ -1,5 +1,8 @@
-<% if @zaiko > 0 %>
-残り<%= @zaiko %>個です。
-<% else %>
-品切れです。
+<table border="1" cellpadding="4">
+<% @items.each do |key, val| %>
+<tr>
+  <th><%= key %></th>
+  <td style="text-align: right"><%= number_with_delimiter(val) %>円</td>
+</tr>
 <% end %>
+</table>

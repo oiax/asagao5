@@ -1,3 +1,5 @@
-<p>Powered By
-<%= image_tag("rails-logo.svg", size: "64x20",
-      alt: "Ruby on Rails", align: "top") %></p>
+<% if @zaiko > 0 %>
+残り<%= @zaiko %>個です。
+<% else %>
+品切れです。
+<% end %>

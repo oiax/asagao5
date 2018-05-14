@@ -1,6 +1,4 @@
 class LessonController < ApplicationController
-  before_action :set_message, only: :step7
-
   def step1
     render plain: "こんにちは、#{params[:name]}さん"
   end
@@ -27,52 +25,44 @@ class LessonController < ApplicationController
   end
 
   def step7
-    render plain: @message
-  end
-
-  private def set_message
-    @message = "こんにちは"
-  end
-
-  def step8
     @price = (2000 * 1.08).floor
   end
 
-  def step9
+  def step8
     @price = 1000
     render "step8"
   end
 
-  def step10
+  def step9
     @comment = "<script>alert('危険！')</script>こんにちは。"
   end
 
-  def step11
+  def step10
     @comment = "<strong>安全なHTML</strong>"
   end
 
-  def step12
+  def step11
     @population = 704414
     @surface = 141.31
   end
 
-  def step13
+  def step12
     @time = Time.now
   end
 
-  def step14
+  def step13
     @population = 127767944
   end
 
-  def step15
+  def step14
     @message = "ごきげんいかが？\nRailsの勉強をがんばりましょう。"
   end
 
-  def step18
+  def step17
     @zaiko = 10
   end
 
-  def step19
+  def step18
     @items = { "フライパン" => 2680, "ワイングラス" => 2550,
                "ペッパーミル" => 4515, "ピーラー" => 945 }
   end
