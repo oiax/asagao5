@@ -1,6 +1,6 @@
 $(document).on("turbolinks:load", function() {
-  var cb = $("#article_no_expiration")
-  var field = $("#article_expired_at")
+  var cb = $("#article_no_expiration");
+  var field = $("#article_expired_at");
 
   var changeExpiredAt = function() {
     if (cb.prop("checked"))
@@ -9,7 +9,7 @@ $(document).on("turbolinks:load", function() {
       field.show()
   }
 
-  cb.bind("click", changeExpiredAt)
+  cb.bind("click", changeExpiredAt);
 
-  changeExpiredAt()
+  changeExpiredAt();
 })
