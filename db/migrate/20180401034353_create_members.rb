@@ -8,6 +8,7 @@ class CreateMembers < ActiveRecord::Migration[5.2]
       t.date :birthday                                      # 生年月日
       t.integer :gender, null: false, default: 0            # 性別 (0:男, 1:女)
       t.boolean :administrator, null: false, default: false # 管理者フラグ
+
       t.timestamps
     end
   end

@@ -4,7 +4,7 @@ class CreateVotes < ActiveRecord::Migration[5.2]
       t.references :entry, null: false  # 外部キー
       t.references :member, null: false # 外部キー
 
-      t.timestamps null: false
+      t.timestamps
     end
   end
 end
