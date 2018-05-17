@@ -47,7 +47,7 @@ class LessonController < ApplicationController
   end
 
   def step12
-    @time = Time.now
+    @time = Time.current
   end
 
   def step13
