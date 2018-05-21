@@ -24,6 +24,11 @@ class Member < ApplicationRecord
     end
   end
 
+  attr_accessor :remove_profile_picture
+  before_save do
+    self.profile_picture.purge if remove_profile_picture
+  end
+
   def votable_for?(entry)
     entry && entry.author != self && !votes.exists?(entry_id: entry.id)
   end

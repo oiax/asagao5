@@ -60,6 +60,7 @@ class Admin::MembersController < Admin::Base
   private def member_params
     attrs = [
       :profile_picture,
+      :remove_profile_picture,
       :number,
       :name,
       :full_name,
