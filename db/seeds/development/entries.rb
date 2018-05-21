@@ -4,6 +4,7 @@ body =
   "2回裏に中村選手のセーフティスクイズなどでヤクルトが3点を先取。" +
   "そして、8回裏には代打・荒木選手がレフトスタンドへ2号満塁ホームラン。\n" +
   "ブキャナン投手の今季初完封を見届けて、気分良く家路に着きました。"
+
 %w(Taro Jiro Hana).each do |name|
   member = Member.find_by(name: name)
   0.upto(9) do |idx|

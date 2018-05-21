@@ -8,7 +8,7 @@ module EntriesHelper
   def other_images(entry)
     buffer = "".html_safe
 
-    entry.images.order(:position)[1..-1].each do |image|
+    entry.images.order(:position)[1..-1]&.each do |image|
       buffer << render_entry_image(image)
     end
 
