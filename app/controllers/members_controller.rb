@@ -14,4 +14,9 @@ class MembersController < ApplicationController
 
     render "index"
   end
+
+  # 会員情報の詳細
+  def show
+    @member = Member.find(params[:id])
+  end
 end

@@ -5,6 +5,8 @@ class Member < ApplicationRecord
   has_many :votes, dependent: :destroy
   has_many :voted_entries, through: :votes, source: :entry
   has_one_attached :profile_picture
+  attribute :new_profile_picture
+  attribute :remove_profile_picture, :boolean
 
   validates :number, presence: true,
     numericality: { only_integer: true,
@@ -15,9 +17,6 @@ class Member < ApplicationRecord
     length: { minimum: 2, maximum: 20, allow_blank: true },
     uniqueness: { case_sensitive: false }
   validates :full_name, length: { maximum: 20 }
-
-  attribute :new_profile_picture
-  attribute :remove_profile_picture, :boolean
 
   validate do
     if new_profile_picture
