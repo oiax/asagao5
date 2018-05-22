@@ -35,7 +35,7 @@ ja:
         status_member_only: 会員限定
         status_public: 公開
       entry_image:
-        data: 画像ファイル
+        new_data: 画像ファイル
         alt_text: 代替テキスト
     errors:
       messages:

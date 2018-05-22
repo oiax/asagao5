@@ -70,7 +70,7 @@ class EntryImagesController < ApplicationController
   # ストロング・パラメータ
   private def image_params
     params.require(:image).permit(
-      :data,
+      :new_data,
       :alt_text
     )
   end

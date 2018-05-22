@@ -31,7 +31,7 @@ class Member < ApplicationRecord
     end
   end
 
-  after_save do
+  before_save do
     if new_profile_picture
       self.profile_picture = new_profile_picture
     elsif remove_profile_picture
