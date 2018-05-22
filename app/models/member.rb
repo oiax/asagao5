@@ -16,17 +16,25 @@ class Member < ApplicationRecord
     uniqueness: { case_sensitive: false }
   validates :full_name, length: { maximum: 20 }
 
+  attr_accessor :new_profile_picture
+  attr_accessor :remove_profile_picture
+
   validate do
-    if profile_picture.attached?
-      unless profile_picture.content_type.in?(ALLOWED_CONTENT_TYPES)
-        errors.add(:profile_picture, :invalid_image_type)
+    if new_profile_picture
+      unless new_profile_picture.content_type.in?(ALLOWED_CONTENT_TYPES)
+        errors.add(:new_profile_picture, :invalid_image_type)
       end
     end
   end
 
-  attr_accessor :remove_profile_picture
-  before_save do
-    self.profile_picture.purge if remove_profile_picture
+  after_validation do
+    if errors.empty?
+      if new_profile_picture
+        self.profile_picture = new_profile_picture
+      else
+        self.profile_picture.purge if remove_profile_picture
+      end
+    end
   end
 
   def votable_for?(entry)

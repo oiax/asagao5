@@ -59,7 +59,7 @@ class Admin::MembersController < Admin::Base
   # ストロング・パラメータ
   private def member_params
     params.require(:member).permit(
-      :profile_picture,
+      :new_profile_picture,
       :remove_profile_picture,
       :number,
       :name,

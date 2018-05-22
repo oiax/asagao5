@@ -6,7 +6,7 @@ ja:
       entry: ブログ記事
     attributes:
       member:
-        profile_picture: プロフィール画像
+        new_profile_picture: プロフィール画像
         remove_profile_picture: 画像を削除
         number: 背番号
         name: ユーザー名
