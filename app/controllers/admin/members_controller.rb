@@ -58,7 +58,7 @@ class Admin::MembersController < Admin::Base
 
   # ストロング・パラメータ
   private def member_params
-    attrs = [
+    params.require(:member).permit(
       :profile_picture,
       :remove_profile_picture,
       :number,
@@ -68,10 +68,6 @@ class Admin::MembersController < Admin::Base
       :birthday,
       :email,
       :administrator
-    ]
-
-    attrs << :password if params[:action] == "create"
-
-    params.require(:member).permit(attrs)
+    )
   end
 end
