@@ -73,8 +73,8 @@ class EntriesController < ApplicationController
   # 投票した記事
   def voted
     @entries = current_member.voted_entries.published
-      .order("votes.created_at" => :desc)
-      .ppage(params[:page]).per(15)
+      .order("votes.created_at DESC")
+      .page(params[:page]).per(15)
   end
 
   # ストロング・パラメータ
