@@ -16,24 +16,26 @@ class Member < ApplicationRecord
     uniqueness: { case_sensitive: false }
   validates :full_name, length: { maximum: 20 }
 
-  attr_accessor :new_profile_picture
-  attr_accessor :remove_profile_picture
+  attribute :new_profile_picture
+  attribute :remove_profile_picture, :boolean
 
   validate do
     if new_profile_picture
-      unless new_profile_picture.content_type.in?(ALLOWED_CONTENT_TYPES)
-        errors.add(:new_profile_picture, :invalid_image_type)
+      if new_profile_picture.respond_to?(:content_type)
+        unless new_profile_picture.content_type.in?(ALLOWED_CONTENT_TYPES)
+          errors.add(:new_profile_picture, :invalid_image_type)
+        end
+      else
+        errors.add(:new_profile_picture, :invalid)
       end
     end
   end
 
-  after_validation do
-    if errors.empty?
-      if new_profile_picture
-        self.profile_picture = new_profile_picture
-      else
-        self.profile_picture.purge if remove_profile_picture
-      end
+  after_save do
+    if new_profile_picture
+      self.profile_picture = new_profile_picture
+    elsif remove_profile_picture
+      self.profile_picture.purge
     end
   end
 
