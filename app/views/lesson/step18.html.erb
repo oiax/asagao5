@@ -1,0 +1,8 @@
+<table border="1" cellpadding="4">
+<% @items.each do |key, val| %>
+<tr>
+  <th><%= key %></th>
+  <td style="text-align: right"><%= number_with_delimiter(val) %>円</td>
+</tr>
+<% end %>
+</table>
