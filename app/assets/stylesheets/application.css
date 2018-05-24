@@ -169,11 +169,6 @@ ul.toolbar li:not(:last-child):after {
   margin: 0 2px;
 }
 
-/* 会員検索フォーム */
-form.search {
-  text-align: right;
-}
-
 /* サイドバー */
 form#login-form {
   font-size: 12px;
@@ -210,65 +205,4 @@ aside#sidebar ul {
 
 aside#sidebar li {
   margin-bottom: 0.3em;
-}
-
-/* 表：一覧表示、詳細表示 */
-table.list, table.attr {
-  font-size: 90%;
-  width: 100%;
-}
-
-table.list th, table.attr th {
-  background-color: #499;
-  color: white;
-  font-weight: normal;
-}
-
-table.list td, table.list th,
-table.attr td, table.attr th {
-  padding: 4px;
-}
-
-table.list th {
-  text-align: left;
-}
-
-table.attr th {
-  text-align: right;
-}
-
-table.list td, table.attr td {
-  background-color: #cee;
-}
-
-/* フラッシュ */
-p.notice {
-  border: 1px solid blue;
-  padding: 3px;
-  background-color: #ccf;
-}
-
-/* エラー表示 */
-div#errors {
-  background-color: #fee;
-  border: 1px solid #ecc;
-  padding: 3px 6px;
-  margin: 0 0 1em;
-}
-
-div#errors h2 {
-  font-size: 90%;
-  color: red;
-  margin: 0 0 4px;
-  border: none;
-}
-
-div#errors ul {
-  margin: 0;
-  padding-left: 1.5em;
-}
-
-div.field_with_errors {
-  background-color: #fcc;
-  padding: 2px;
 }
