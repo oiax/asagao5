@@ -1,0 +1,36 @@
+<% @page_title = "会員の詳細" %>
+
+<h1><%= @page_title %></h1>
+
+<div class="toolbar"><%= link_to "編集", [:edit, @member] %></div>
+
+<table class="attr">
+  <tr>
+    <th width="150">背番号</th>
+    <td><%= @member.number %></td>
+  </tr>
+  <tr>
+    <th>ユーザー名</th>
+    <td><%= @member.name %></td>
+  </tr>
+  <tr>
+    <th>氏名</th>
+    <td><%= @member.full_name %></td>
+  </tr>
+  <tr>
+    <th>性別</th>
+    <td><%= @member.sex == 1 ? "男" : "女" %></td>
+  </tr>
+  <tr>
+    <th>誕生日</th>
+    <td><%= @member.birthday&.strftime("%Y年%m月%d日") %></td>
+  </tr>
+  <tr>
+    <th>メールアドレス</th>
+    <td><%= @member.email %></td>
+  </tr>
+  <tr>
+    <th>管理者</th>
+    <td><%= @member.administrator? ? "○" : "－" %></td>
+  </tr>
+</table>
