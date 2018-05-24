@@ -4,6 +4,12 @@ class MembersController < ApplicationController
     @members = Member.order("number")
   end
 
+  # 検索
+  def search
+    @members = Member.search(params[:q])
+    render "index"
+  end
+
   def show
   end
 
