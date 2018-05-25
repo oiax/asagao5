@@ -15,6 +15,10 @@
         <%= render "shared/header" %>
       </header>
       <main>
+        <% if flash.notice %>
+          <p class="notice"><%= flash.notice %></p>
+        <% end %>
+
         <%= yield %>
       </main>
       <aside id="sidebar">
