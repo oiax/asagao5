@@ -38,10 +38,4 @@
       <%= form.label :administrator, "管理者" %>
     </td>
   </tr>
-  <% if @member.new_record? %>
-    <tr>
-      <th><%= form.label :password, "パスワード" %></th>
-      <td><%= form.password_field :password %></td>
-    </tr>
-  <% end %>
 </table>
