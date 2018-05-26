@@ -1,0 +1,30 @@
+<% @page_title = "パスワードの変更" %>
+<h1><%= @page_title %></h1>
+
+<div class="toolbar"><%= link_to "マイアカウントに戻る", :account %></div>
+
+<%= form_for @member, as: "account", url: :password do |form| %>
+  <%= render "shared/errors", obj: @member %>
+
+  <table class="attr">
+    <tr>
+      <th><label for="current_password">現在のパスワード</label></th>
+      <td>
+        <input
+          type="password"
+          name="current_password"
+          id="current_password">
+      </td>
+    </tr>
+    <tr>
+      <th><%= form.label :password %></th>
+      <td><%= form.password_field :password %></td>
+    </tr>
+    <tr>
+      <th><%= form.label :password_confirmation %></th>
+      <td><%= form.password_field :password_confirmation %></td>
+    </tr>
+  </table>
+
+  <div><%= form.submit "変更" %></div>
+<% end %>
