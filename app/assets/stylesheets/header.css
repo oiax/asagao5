@@ -1,0 +1,14 @@
+header ul.account-menu {
+  width: 200px;
+  float: right;
+  font-size: 80%;
+  text-align: right;
+  list-style-type: none;
+  margin: 6px 0 0 0;
+  padding: 0;
+}
+
+header ul.account-menu li {
+  display: inline;
+  margin-right: 10px;
+}
