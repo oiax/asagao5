@@ -35,7 +35,7 @@
   <% if @member.new_record? %>
     <tr>
       <th><%= Member.human_attribute_name(:password) %></th>
-      <td><%= form.password_field :password %></td>
+      <td><%= form.text_field :password %></td>
     </tr>
   <% end %>
   <% if controller.kind_of?(MembersController) %>
