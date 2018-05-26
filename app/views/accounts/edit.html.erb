@@ -1,0 +1,10 @@
+<% @page_title = "アカウント情報の編集" %>
+
+<h1><%= @page_title %></h1>
+
+<div class="toolbar"><%= link_to "マイアカウントに戻る", :account %></div>
+
+<%= form_for @member, as: "account", url: :account do |form| %>
+  <%= render "shared/member_form", form: form %>
+  <div><%= form.submit %></div>
+<% end %>
