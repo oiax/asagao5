@@ -50,6 +50,8 @@ GEM
     byebug (10.0.2)
     concurrent-ruby (1.0.5)
     crass (1.0.4)
+    email_validator (1.6.0)
+      activemodel
     erubi (1.7.1)
     execjs (2.7.0)
     ffi (1.9.23)
@@ -178,6 +180,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (>= 1.1.0)
   byebug
+  email_validator (~> 1.6)
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   puma (~> 3.11)
