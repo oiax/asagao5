@@ -1,0 +1,24 @@
+/* エラー表示 */
+div#errors {
+  background-color: #fee;
+  border: 1px solid #ecc;
+  padding: 3px 6px;
+  margin: 0 0 1em;
+}
+
+div#errors h2 {
+  font-size: 90%;
+  color: red;
+  margin: 0 0 4px;
+  border: none;
+}
+
+div#errors ul {
+  margin: 0;
+  padding-left: 1.5em;
+}
+
+div.field_with_errors {
+  background-color: #fcc;
+  padding: 2px;
+}
