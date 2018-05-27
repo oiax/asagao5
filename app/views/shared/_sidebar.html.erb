@@ -1,9 +1,13 @@
 <%= render "shared/login_form" unless current_member %>
 
 <h2>最新ニュース</h2>
+<%
+  articles = Article.visible.order(released_at: :desc).limit(5)
+  articles = articles.open_to_the_public unless current_member
+%>
 <ul>
-  <% 5.times do |i| %>
-    <li><%= link_to "ニュースの見出し", "#" %></li>
+  <% articles.each do |article| %>
+    <li><%= link_to article.title, article %></li>
   <% end %>
 </ul>
 

@@ -20,4 +20,13 @@ class Article < ApplicationRecord
       errors.add(:expired_at, :expired_at_too_old)
     end
   end
+
+  scope :open_to_the_public, -> { where(member_only: false) }
+
+  scope :visible, -> do
+    now = Time.current
+
+    where("released_at <= ?", now)
+      .where("expired_at > ? OR expired_at IS NULL", now)
+  end
 end
