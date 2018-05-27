@@ -17,16 +17,18 @@
   </tr>
   <tr>
     <th><%= form.label :expired_at, for: "article_expired_at_1i" %></th>
-      <td>
+    <td>
+      <div>
         <%= form.check_box :no_expiration %>
-        <%= form.label :no_expiration %><br />
-        <div id="article_expired_at">
+        <%= form.label :no_expiration %>
+      </div>
+      <div id="article_expired_at">
         <%= form.datetime_select :expired_at,
           start_year: 2000, end_year: Time.now.year + 1,
           use_month_numbers: true %>
-        </div>
-      </td>
-    </tr>
+      </div>
+    </td>
+  </tr>
   <tr>
     <th><%= Article.human_attribute_name(:member_only) %></th>
     <td>

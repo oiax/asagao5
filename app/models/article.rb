@@ -8,7 +8,7 @@ class Article < ApplicationRecord
   end
 
   def no_expiration=(val)
-    @no_expiration = val.in?([true, 1, "1"])
+    @no_expiration = val.in?([true, "1"])
   end
 
   before_validation do
