@@ -21,7 +21,9 @@ ja:
         body: 本文
         released_at: 掲載開始日時
         expired_at: 掲載終了日時
+        no_expiration: 掲載終了日時を設定しない
         member_only: 会員限定
     errors:
       messages:
         invalid_member_name: は半角英数字で入力してください。
+        expired_at_too_old: は掲載開始日より新しい日時にしてください。

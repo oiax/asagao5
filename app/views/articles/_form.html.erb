@@ -18,9 +18,15 @@
   <tr>
     <th><%= form.label :expired_at, for: "article_expired_at_1i" %></th>
     <td>
-      <%= form.datetime_select :expired_at,
-            start_year: 2000, end_year: Time.current.year + 1,
-            use_month_numbers: true %>
+      <div>
+        <%= form.check_box :no_expiration %>
+        <%= form.label :no_expiration %>
+      </div>
+      <div>
+        <%= form.datetime_select :expired_at,
+          start_year: 2000, end_year: Time.current.year + 1,
+          use_month_numbers: true %>
+      </div>
     </td>
   </tr>
   <tr>
