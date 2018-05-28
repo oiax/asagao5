@@ -1,0 +1,9 @@
+<% @page_title = "ブログ記事の編集" %>
+<h1><%= @page_title %></h1>
+
+<div class="toolbar"><%= link_to "記事の表示に戻る", @entry %></div>
+
+<%= form_for @entry do |form| %>
+  <%= render "form", form: form %>
+  <div><%= form.submit %></div>
+<% end %>

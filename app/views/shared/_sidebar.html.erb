@@ -12,8 +12,15 @@
 </ul>
 
 <h2>会員のブログ</h2>
+<%
+  entries = Entry.readable_for(current_member)
+    .order(posted_at: :desc).limit(5)
+%>
 <ul>
-  <% 5.times do |i| %>
-    <li><%= link_to "ブログの見出し", "#" %></li>
+  <% entries.each do |entry| %>
+    <li>
+      <%= link_to entry.title, entry %>
+      by <%= link_to entry.author.name, [entry.author, :entries] %>
+    </li>
   <% end %>
 </ul>

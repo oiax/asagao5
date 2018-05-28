@@ -1,0 +1,35 @@
+main ul.entry-footer {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px #ccf dashed;
+  padding-top: 4px;
+  margin-bottom: 15px;
+  text-align: right;
+  font-size: 75%;
+}
+
+main ul.entry-footer li {
+  display: inline;
+}
+
+main ul.entry-footer li:not(:last-child):after {
+  color: #444;
+  content: " | ";
+  margin: 0 2px;
+}
+
+/* 投票 */
+main span.vote,
+main p.vote {
+  color: #88c;
+}
+
+span.vote a.button,
+p.vote a.button {
+  border: 1px solid #ccf;
+  padding: 0 3px;
+  color: #88c;
+  background-color: #eef;
+  text-decoration: none;
+}
