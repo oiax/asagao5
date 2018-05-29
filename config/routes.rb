@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root "top#index"
   get "about" => "top#about", as: "about"
+  get "bad_request" => "top#bad_request"
+  get "internal_server_error" => "top#internal_server_error"
 
   1.upto(18) do |n|
     get "lesson/step#{n}(/:name)" => "lesson#step#{n}"

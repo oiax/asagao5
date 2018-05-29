@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><%= page_title %></title>
+    <%= stylesheet_link_tag "application", media: "all" %>
+  </head>
+  <body>
+    <div id="container">
+      <header>
+        <%= image_tag("logo.gif", size: "272x48", alt: "Morning Glory") %>
+        <nav class="menubar">
+          <a href="/">TOP</a>
+        </nav>
+      </header>
+      <main>
+        <%= yield %>
+      </main>
+      <footer>
+        <%= render "shared/footer" %>
+      </footer>
+    </div>
+  </body>
+</html>

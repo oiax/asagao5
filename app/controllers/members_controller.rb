@@ -25,14 +25,14 @@ class MembersController < ApplicationController
     @member = Member.new(birthday: Date.new(1980, 1, 1))
   end
 
-  # 編集フォーム
+  # 更新フォーム
   def edit
     @member = Member.find(params[:id])
   end
 
   # 会員の新規登録
   def create
-    @member = Member.new(params[:member])
+    @member = Member.new(member_params)
     if @member.save
       redirect_to @member, notice: "会員を登録しました。"
     else
@@ -43,7 +43,7 @@ class MembersController < ApplicationController
   # 会員情報の更新
   def update
     @member = Member.find(params[:id])
-    @member.assign_attributes(params[:member])
+    @member.assign_attributes(member_params)
     if @member.save
       redirect_to @member, notice: "会員情報を更新しました。"
     else
@@ -56,5 +56,22 @@ class MembersController < ApplicationController
     @member = Member.find(params[:id])
     @member.destroy
     redirect_to :members, notice: "会員を削除しました。"
+  end
+
+  # ストロング・パラメータ
+  private def member_params
+    attrs = [
+      :number,
+      :name,
+      :full_name,
+      :gender,
+      :birthday,
+      :email,
+      :administrator
+    ]
+
+    attrs << :password if action_name == "create"
+
+    params.require(:member).permit(attrs)
   end
 end
