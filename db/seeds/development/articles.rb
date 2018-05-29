@@ -13,6 +13,7 @@ body =
     member_only: (idx % 3 == 0)
   )
 end
+
 0.upto(29) do |idx|
   Article.create(
     title: "Article#{idx+10}",
