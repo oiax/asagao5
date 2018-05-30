@@ -2,6 +2,8 @@ class Member < ApplicationRecord
   has_secure_password
 
   has_many :entries, dependent: :destroy
+  has_one_attached :profile_picture
+  attribute :new_profile_picture
 
   validates :number, presence: true,
     numericality: {
@@ -21,6 +23,12 @@ class Member < ApplicationRecord
     uniqueness: { case_sensitive: false }
   validates :full_name, presence: true, length: { maximum: 20 }
   validates :email, email: { allow_blank: true }
+
+  before_save do
+    if new_profile_picture
+      self.profile_picture = new_profile_picture
+    end
+  end
 
   class << self
     def search(query)
