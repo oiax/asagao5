@@ -1,0 +1,12 @@
+$border-color: #499;
+
+nav.pagination {
+  font-size: 75%;
+  padding: 4px 8px;
+  border: 1px solid $border-color;
+  word-spacing: 4px;
+
+  span.current {
+    font-weight: bold;
+  }
+}

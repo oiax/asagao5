@@ -22,7 +22,7 @@
         <%= form.check_box :no_expiration %>
         <%= form.label :no_expiration %>
       </div>
-      <div>
+      <div id="article_expired_at">
         <%= form.datetime_select :expired_at,
           start_year: 2000, end_year: Time.current.year + 1,
           use_month_numbers: true %>
