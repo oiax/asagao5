@@ -34,6 +34,9 @@ ja:
         status_draft: 下書き
         status_member_only: 会員限定
         status_public: 公開
+      entry_image:
+        new_data: 画像ファイル
+        alt_text: 代替テキスト
     errors:
       messages:
         invalid_member_name: は半角英数字で入力してください。

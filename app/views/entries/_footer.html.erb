@@ -3,6 +3,7 @@
     <li><%= Entry.status_text(entry.status) %></li>
     <% if current_member == entry.author %>
       <%= menu_link_to "編集", [:edit, entry] %>
+      <%= menu_link_to "画像", [entry, :images] %>
       <%= menu_link_to "削除", entry, method: :delete,
             data: { confirm: "本当に削除しますか？" } %>
     <% end %>

@@ -1,0 +1,12 @@
+<%= render "shared/errors", obj: @image %>
+
+<table class="attr">
+  <tr>
+    <th><%= form.label :new_data %></th>
+    <td><%= form.file_field :new_data %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :alt_text %></th>
+    <td><%= form.text_field :alt_text, size: 40 %></td>
+  </tr>
+</table>

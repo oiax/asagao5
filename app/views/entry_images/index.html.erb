@@ -1,0 +1,43 @@
+<% @page_title = "ブログ記事の画像" %>
+<h1><%= @page_title %></h1>
+
+<ul class="toolbar">
+  <%= menu_link_to "ブログ記事に戻る", @entry %>
+  <%= menu_link_to "画像の追加", [:new, @entry, :image] %>
+</ul>
+
+<% if @images.present? %>
+  <table class="list">
+    <thead>
+      <tr>
+        <th>番号</th>
+        <th>画像</th>
+        <th>代替テキスト</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @images.each_with_index do |image, index| %>
+        <tr>
+          <td><%= index + 1 %></td>
+          <td>
+            <%= image_tag image.data.variant(resize: "100x>"),
+              alt: image.alt_text %>
+          </td>
+          <td>
+            <%= image.alt_text %>
+          </td>
+          <td>
+            <div>
+              <%= link_to "編集", edit_entry_image_path(@entry, image) %> |
+              <%= link_to "削除", entry_image_path(@entry, image),
+                method: :delete, data: { confirm: "本当に削除しますか？" } %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>画像がありません。</p>
+<% end %>
