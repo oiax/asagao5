@@ -1,6 +1,7 @@
 class EntryImage < ApplicationRecord
   belongs_to :entry
   has_one_attached :data
+  acts_as_list scope: :entry
 
   attribute :new_data
 

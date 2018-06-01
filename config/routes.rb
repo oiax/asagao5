@@ -19,6 +19,8 @@ Rails.application.routes.draw do
 
   resources :articles
   resources :entries do
-    resources :images, controller: "entry_images"
+    resources :images, controller: "entry_images" do
+      patch :move_higher, :move_lower, on: :member
+    end
   end
 end

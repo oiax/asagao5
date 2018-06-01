@@ -33,6 +33,14 @@
               <%= link_to "削除", entry_image_path(@entry, image),
                 method: :delete, data: { confirm: "本当に削除しますか？" } %>
             </div>
+            <div>
+              <%= link_to_if index > 0, "上へ",
+                move_higher_entry_image_path(@entry, image),
+                method: :patch %> |
+              <%= link_to_if index < @images.size - 1, "下へ",
+                move_lower_entry_image_path(@entry, image),
+                method: :patch %>
+            </div>
           </td>
         </tr>
       <% end %>
