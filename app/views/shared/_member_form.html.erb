@@ -3,7 +3,16 @@
 <table class="attr">
   <tr>
     <th><%= form.label :number %></th>
-    <td><%= form.text_field :number, size: 8 %></td>
+    <td>
+      <div><%= form.file_field :new_profile_picture %></div>
+      <% if @member.profile_picture.attached? %>
+        <div>
+          <%= image_tag @member.profile_picture.variant(resize: "128x128") %>
+          <%= form.check_box :remove_profile_picture %>
+          <%= form.label :remove_profile_picture %>
+        </div>
+      <% end %>
+    </td>
   </tr>
   <tr>
     <th><%= form.label :name %></th>
