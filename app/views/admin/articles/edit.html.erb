@@ -1,9 +1,9 @@
 <% @page_title = "ニュース記事の編集" %>
 <h1><%= @page_title %></h1>
 
-<p><%= link_to "記事の詳細に戻る", @article %></p>
+<p><%= link_to "記事の詳細に戻る", [:admin, @article] %></p>
 
-<%= form_for @article do |form| %>
+<%= form_for [:admin, @article] do |form| %>
   <%= render "form", form: form %>
   <div><%= form.submit %></div>
 <% end %>
