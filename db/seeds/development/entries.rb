@@ -8,7 +8,7 @@ body =
 %w(Taro Jiro Hana).each do |name|
   member = Member.find_by(name: name)
   0.upto(9) do |idx|
-    entry = Entry.create(
+    Entry.create(
       author: member,
       title: "野球観戦#{idx}",
       body: body,
