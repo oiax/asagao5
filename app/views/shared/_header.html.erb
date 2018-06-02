@@ -8,14 +8,10 @@
   </ul>
 <% end %>
 
-<nav class="menubar">
-  <ul>
-    <%= menu_link_to "TOP", :root %>
-    <%= menu_link_to "ニュース", :articles %>
-    <%= menu_link_to "ブログ", :entries %>
-    <% if current_member %>
-      <%= menu_link_to "会員名簿", :members %>
-      <%= menu_link_to "管理ページ", "#" %>
-    <% end %>
-  </ul>
-</nav>
+<%=
+  if controller.kind_of?(Admin::Base)
+    render "shared/admin_menubar"
+  else
+    render "shared/menubar"
+  end
+%>
