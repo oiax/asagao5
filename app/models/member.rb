@@ -2,6 +2,8 @@ class Member < ApplicationRecord
   has_secure_password
 
   has_many :entries, dependent: :destroy
+  has_many :votes, dependent: :destroy
+  has_many :voted_entries, through: :votes, source: :entry
   has_one_attached :profile_picture
   attribute :new_profile_picture
   attribute :remove_profile_picture, :boolean
@@ -41,6 +43,10 @@ class Member < ApplicationRecord
     elsif remove_profile_picture
       self.profile_picture.purge
     end
+  end
+
+  def votable_for?(entry)
+    entry && entry.author != self && !votes.exists?(entry_id: entry.id)
   end
 
   class << self
