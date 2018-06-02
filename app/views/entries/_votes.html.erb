@@ -1,0 +1,10 @@
+<div class="vote">
+  <% @entry.voters.order("votes.created_at").each do |voter| %>
+    &#x2605;<%= voter.name %>
+  <% end %>
+
+  <% if current_member && current_member.votable_for?(@entry) %>
+    <%= link_to "&#x2605;いいね!".html_safe, [:like, @entry],
+      method: :patch, class: "button" %>
+  <% end %>
+</div>

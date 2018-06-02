@@ -14,4 +14,7 @@
   <li>
     <%= entry.posted_at.strftime("%Y/%m/%d %H:%M") %>
   </li>
+  <% if (count = entry.votes.count) > 0 %>
+    <li><span class="vote">&#x2605;<%= count %></span></li>
+  <% end %>
 </ul>

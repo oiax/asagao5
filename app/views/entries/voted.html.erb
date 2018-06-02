@@ -1,0 +1,18 @@
+<% @page_title = "投票した記事" %>
+<h1><%= @page_title %></h1>
+
+<% if @entries.present? %>
+  <ul>
+    <% @entries.each do |entry| %>
+    <li>
+      <%= link_to entry.title, entry %>
+      by <%= link_to entry.author.name, [entry.author, :entries] %>
+      - <%= link_to "削除", [:unlike, entry], method: :patch,
+              data: { confirm: "削除しますか?" } %>
+    </li>
+    <% end %>
+  </ul>
+  <%= paginate @entries %>
+<% else %>
+  <p>記事がありません。</p>
+<% end %>
