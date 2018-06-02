@@ -2,7 +2,7 @@
 
 <table class="attr">
   <tr>
-    <th><%= form.label :number %></th>
+    <th><%= form.label :new_profile_picture %></th>
     <td>
       <div><%= form.file_field :new_profile_picture %></div>
       <% if @member.profile_picture.attached? %>
@@ -13,6 +13,10 @@
         </div>
       <% end %>
     </td>
+  </tr>
+  <tr>
+    <th><%= form.label :number %></th>
+    <td><%= form.text_field :number %></td>
   </tr>
   <tr>
     <th><%= form.label :name %></th>
