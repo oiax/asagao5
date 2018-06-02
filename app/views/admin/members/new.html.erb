@@ -2,7 +2,7 @@
 
 <h1><%= @page_title %></h1>
 
-<%= form_for @member do |form| %>
+<%= form_for [:admin, @member] do |form| %>
   <%= render "shared/member_form", form: form %>
   <div><%= form.submit %></div>
 <% end %>

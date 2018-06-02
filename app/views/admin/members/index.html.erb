@@ -1,10 +1,12 @@
 <% @page_title = "会員名簿" %>
 <h1><%= @page_title %></h1>
 
-<%= form_tag :search_members, method: :get, class: "search" do %>
+<%= form_tag :search_admin_members, method: :get, class: "search" do %>
   <%= text_field_tag "q", params[:q] %>
   <%= submit_tag "検索" %>
 <% end %>
+
+<div class="toolbar"><%= link_to "会員の新規登録", :new_admin_member %></div>
 
 <% if @members.present? %>
   <table class="list">
@@ -20,8 +22,13 @@
       <% @members.each do |member| %>
         <tr>
           <td style="text-align: right"><%= member.number %></td>
-          <td><%= link_to member.name, member %></td>
+          <td><%= link_to member.name, [:admin, member] %></td>
           <td><%= member.full_name %></td>
+          <td>
+            <%= link_to "編集", [:edit, :admin, member] %> |
+            <%= link_to "削除", [:admin, member], method: :delete,
+              data: { confirm: "本当に削除しますか?" } %>
+          </td>
         </tr>
       <% end %>
     </tbody>

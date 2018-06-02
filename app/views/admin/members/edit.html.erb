@@ -4,7 +4,7 @@
 
 <div class="toolbar"><%= link_to "会員の詳細に戻る", @member %></div>
 
-<%= form_for @member do |form| %>
+<%= form_for [:admin, @member] do |form| %>
   <%= render "shared/member_form", form: form %>
   <div><%= form.submit %></div>
 <% end %>
