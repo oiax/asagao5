@@ -14,8 +14,9 @@ ja:
         birthday: 誕生日
         email: メールアドレス
         administrator: 管理者
-        password: パスワード
-        password_confirmation: パスワードの確認
+        current_password: 現在のパスワード
+        password: 新しいパスワード
+        password_confirmation: 新しいパスワードの確認
       article:
         title: タイトル
         body: 本文
@@ -27,3 +28,4 @@ ja:
       messages:
         invalid_member_name: は半角英数字で入力してください。
         expired_at_too_old: は掲載開始日より新しい日時にしてください。
+        wrong: が正しくありません。
