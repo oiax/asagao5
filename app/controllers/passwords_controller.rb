@@ -11,15 +11,22 @@ class PasswordsController < ApplicationController
 
   def update
     @member = current_member
-    if @member.authenticate(params[:current_password])
-      @member.assign_attributes(params[:account])
-      if @member.save
-        redirect_to :account, notice: "パスワードを変更しました。"
+    current_password = params[:account][:current_password]
+
+    if current_password.present?
+      if @member.authenticate(current_password)
+        @member.assign_attributes(params[:account])
+        if @member.save
+          redirect_to :account, notice: "パスワードを変更しました。"
+        else
+          render "edit"
+        end
       else
+        @member.errors.add(:current_password, :wrong)
         render "edit"
       end
     else
-      @member.errors.add(:base, "現在のパスワードが誤っています。")
+      @member.errors.add(:current_password, :empty)
       render "edit"
     end
   end
