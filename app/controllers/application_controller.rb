@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_member
 
+  class LoginRequired < StandardError; end
   class Forbidden < StandardError; end
 
   if Rails.env.production? || ENV["RESCUE_EXCEPTIONS"]
@@ -12,15 +13,20 @@ class ApplicationController < ActionController::Base
     rescue_from ActionController::ParameterMissing, with: :rescue_400
   end
 
+  rescue_from LoginRequired, with: :rescue_login_required
   rescue_from Forbidden, with: :rescue_403
 
   private def login_required
-    raise Forbidden unless current_member
+    raise LoginRequired unless current_member
   end
 
   private def rescue_400(exception)
     render "errors/bad_request", status: 400, layout: "error",
       formats: [:html]
+  end
+
+  private def rescue_login_required(exception)
+    render "errors/login_required", layout: "error", formats: [:html]
   end
 
   private def rescue_403(exception)
