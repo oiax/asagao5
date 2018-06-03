@@ -8,13 +8,8 @@
 
   <table class="attr">
     <tr>
-      <th><label for="current_password">現在のパスワード</label></th>
-      <td>
-        <input
-          type="password"
-          name="current_password"
-          id="current_password">
-      </td>
+      <th><%= form.label :current_password %></th>
+      <td><%= form.password_field :current_password %></td>
     </tr>
     <tr>
       <th><%= form.label :password %></th>
