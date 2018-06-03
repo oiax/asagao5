@@ -4,9 +4,10 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_member
 
+  class LoginRequired < StandardError; end
   class Forbidden < StandardError; end
 
   private def login_required
-    raise Forbidden unless current_member
+    raise LoginRequired unless current_member
   end
 end
