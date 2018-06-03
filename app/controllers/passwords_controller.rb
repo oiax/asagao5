@@ -11,15 +11,22 @@ class PasswordsController < ApplicationController
 
   def update
     @member = current_member
-    if @member.authenticate(params[:current_password])
-      @member.assign_attributes(account_params)
-      if @member.save
-        redirect_to :account, notice: "パスワードを変更しました。"
+    current_password = account_params[:current_password]
+
+    if current_password.present?
+      if @member.authenticate(current_password)
+        @member.assign_attributes(account_params)
+        if @member.save
+          redirect_to :account, notice: "パスワードを変更しました。"
+        else
+          render "edit"
+        end
       else
+        @member.errors.add(:current_password, :wrong)
         render "edit"
       end
     else
-      @member.errors.add(:base, "現在のパスワードが誤っています。")
+      @member.errors.add(:current_password, :empty)
       render "edit"
     end
   end
@@ -27,8 +34,9 @@ class PasswordsController < ApplicationController
   # ストロング・パラメータ
   private def account_params
     params.require(:account).permit(
+      :current_password,
       :password,
-      :password_conrimation
+      :password_confirmation
     )
   end
 end
