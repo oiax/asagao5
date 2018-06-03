@@ -27,6 +27,9 @@ class Member < ApplicationRecord
   validates :full_name, presence: true, length: { maximum: 20 }
   validates :email, email: { allow_blank: true }
 
+  attr_accessor :current_password
+  validates :password, presence: { if: :current_password }
+
   validate if: :new_profile_picture do
     if new_profile_picture.respond_to?(:content_type)
       unless new_profile_picture.content_type.in?(ALLOWED_CONTENT_TYPES)
