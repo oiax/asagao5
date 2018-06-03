@@ -12,6 +12,6 @@ class TopController < ApplicationController
   end
 
   def internal_server_error
-    raise StandardError
+    raise
   end
 end
