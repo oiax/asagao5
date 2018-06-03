@@ -41,6 +41,6 @@ ja:
     errors:
       messages:
         invalid_member_name: は半角英数字で入力してください。
+        wrong: が正しくありません。
         expired_at_too_old: は掲載開始日より新しい日時にしてください。
         invalid_image_type: にはJPEG、PNG、GIF、PNG形式の画像を指定してください。
-        wrong: が正しくありません。
