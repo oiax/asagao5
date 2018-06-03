@@ -1,6 +1,4 @@
 class Member < ApplicationRecord
-  has_secure_password
-
   validates :number, presence: true,
     numericality: {
       only_integer: true,
@@ -19,6 +17,15 @@ class Member < ApplicationRecord
     uniqueness: { case_sensitive: false }
   validates :full_name, presence: true, length: { maximum: 20 }
   validates :email, email: { allow_blank: true }
+
+  has_secure_password
+  attribute :new_password
+  attribute :new_password_confirmation
+  validates :new_password, presence: { allow_nil: true }, confirmation: true
+
+  before_save do
+    self.password = new_password if new_password
+  end
 
   class << self
     def search(query)
