@@ -1,6 +1,4 @@
 class Admin::MembersController < Admin::Base
-  before_action :login_required
-
   # 会員一覧
   def index
     @members = Member.order("number")
