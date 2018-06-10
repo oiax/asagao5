@@ -15,7 +15,7 @@
     <tbody>
       <% @articles.each do |article| %>
         <tr>
-          <td><%= link_to article.title, article %></td>
+          <td><%= link_to article.title, [:admin, article] %></td>
           <td><%= article.released_at.strftime("%Y/%m/%d %H:%M") %></td>
           <td>
             <%= link_to "編集", [:edit, :admin, article] %> |
