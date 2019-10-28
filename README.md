@@ -7,9 +7,9 @@ Asagao -- ある草野球チームのブログサイト
 --------
 
 * オペレーティングシステム
-** macOS Sierra （v10.12）
-** macOS High Sierra （v10.13）
-** Windows 10
+    * macOS Sierra （v10.12）
+    * macOS High Sierra （v10.13）
+    * Windows 10
 * Ruby 2.5.1
 
 書籍のChapter 13で解説されているActive Storageの機能を利用するには、さらにImageMagickのインストールが必要です。
